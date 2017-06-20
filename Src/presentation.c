@@ -31,6 +31,8 @@
  uint32_t tickStartRx = 0;
  uint32_t tickStartADC = 0;
  uint32_t tickStartPWM = 0;
+ uint32_t tickStartButtonIR = 0;
+
 
  // Count Variable fuer Messwert-Array
  uint8_t numbSensorValue = 0;
@@ -43,6 +45,8 @@ const uint8_t TCYCLE_RX =  10;
 const uint8_t TCYCLE_MC1 = 10;
 const uint8_t TCYCLE_MC2 = 10;
 const uint8_t TCYCLE_MC3 = 10;
+
+const uint16_t TCYCLE_BUTTONIR = 200;
 
 
 
@@ -210,9 +214,9 @@ uint32_t pwm = 0;
 		{
 			DataObj_MC1_3.c[i] = 0;
 		}
-		sprintf(DataObj_MC1_3.c,"TEXT BUFFER TO SEND ON CP_CAN");
+		sprintf(DataObj_MC1_3.c,"TEXT BUFFER TO SEND ON CP_CAN\r");
 
-		DataObj_MC1_3.manual = 2000;
+		DataObj_MC1_3.manual = 0;
 		DataObj_MC1_3.button_state = 0;
 
 		DataObj_MC2_1.adcval = 0;
@@ -715,8 +719,11 @@ uint32_t pwm = 0;
    void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
    {
 
-
-   	buttonIR = 1;
+  	if ((HAL_GetTick() - tickStartButtonIR) > TCYCLE_BUTTONIR)
+  	{
+  		tickStartButtonIR = HAL_GetTick();
+     	buttonIR = 1;
+  	}
    }
 
 
@@ -1301,15 +1308,15 @@ void presi_main_uart()
 
 				/* Set New PWMVal *******************************************************/
 
-				if(DataObj_MC1_3.button_state == 1)
+				if(DataObj_MC1_3.button_state == 0)
 				{
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
 					pwm = 200 * DataObj_MC1_3.manual / MAXADCVAL;
 					__HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_2,pwm);		// PB_5 / D11	- Links unten (2)
 				}
 				else
 				{
-					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_RESET);
+					HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, GPIO_PIN_SET);
 					pwm = 200 * DataObj_MC1_3.sin_val / MAXADCVAL;
 					__HAL_TIM_SetCompare(&htim3,TIM_CHANNEL_2,pwm);		// PB_5 / D11	- Links unten (2)
 				}
