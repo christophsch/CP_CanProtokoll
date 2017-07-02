@@ -41,11 +41,6 @@
 
 /* Private define ------------------------------------------------------------*/
 
-#define CHRIS_CAN_RX_Pin GPIO_PIN_11
-#define CHRIS_CAN_RX_GPIO_Port GPIOA
-#define CHRIS_CAN_TX_Pin GPIO_PIN_12
-#define CHRIS_CAN_TX_GPIO_Port GPIOA
-
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
