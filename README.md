@@ -23,7 +23,10 @@ Dokumentation
 -------------------------
 Der Code ist hauptsaechlich in den Source-Code Files dokumentiert.
 Bei Elementen, die im Source-Code nicht verwendet werden, wird in den 
-Header-Files dokomentiert.
+Header-Files dokomentiert. Fuer eine umfassende Beschreibung via der
+generierten Web-Dokumentation ueber die Kategorie <b>Modules</b> gehen.
+Diese Web-Dokumentation ist hilfreich um sich einen Ueberblick zu verschaffen.
+
 
 Grobe Uebersicht des Aufbaus:
 -------------------------------------------------

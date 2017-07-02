@@ -790,7 +790,13 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = C:\Users\Christoph\Desktop\doxy
+INPUT                  = . \
+                         Inc/cp_user.h \
+                         Src/cp_user.c \
+                         Inc/cp_control.h \
+                         Src/cp_control.c \
+                         Src/cp_example.c \
+                         Src/main.c
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses

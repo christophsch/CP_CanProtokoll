@@ -12,24 +12,24 @@
  extern "C" {
 #endif
 
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 /* Includes */
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 
 #include "stm32f3xx_hal.h"
 #include "cp_user.h"
 
 
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 /* DEFINES */
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 
 //#define TIMEOUTCANTX	1500
 
 
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 /* VARIABLES AND CONSTANTS */
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 
 /**
  * @defgroup Steuerungsfelder Steuerungsfelder
@@ -51,7 +51,7 @@
  */
  
  
-/*__________________________________________________________________________*/
+/****************************************************************************/
 /**
  * CP Sende Steuerungsfeld / CP Controlfield Tx.
  * 
@@ -77,14 +77,14 @@
  * 
  */
 struct CPcontrolFieldsTx{
-	uint16_t  arrID;			**< Initialisierte ID */
-	uint32_t  arrLength;	**< Groesse des Datenobjekts in Byte */
-	uint32_t  arrOffset;		**< Anzahl bereits versendete Datenbytes  */
-	uint8_t   *arrPtrObj;	**< Zeiger auf Datenobjekt */
-	uint8_t 	arrStatus;		**< Kommunikationszustand des Sendeobjekts #CP_StatusTypeDef*/
+	uint16_t  arrID;			/**< Initialisierte ID */
+	uint32_t  arrLength;	/**< Groesse des Datenobjekts in Byte */
+	uint32_t  arrOffset;	/**< Anzahl bereits versendete Datenbytes  */
+	uint8_t   *arrPtrObj;	/**< Zeiger auf Datenobjekt */
+	uint8_t 	arrStatus;	/**< Kommunikationszustand des Sendeobjekts #CP_StatusTypeDef*/
 }CPcontrolFieldsTX;
 
-/*__________________________________________________________________________*/
+/****************************************************************************/
 /**
  *
  * CP Empfangs Steuerungsfeld / CP Controlfield Rx.
@@ -101,11 +101,11 @@ struct CPcontrolFieldsTx{
  * 
  */
 struct CPcontrolFieldsRx{
-  uint16_t  arrID[NUMBDATAOBJMAX];			**< Initialisierte ID */
-  uint32_t  arrLength[NUMBDATAOBJMAX];	**< Groesse des Datenobjekts in Byte */
-  uint32_t  arrOffset[NUMBDATAOBJMAX];		**< Anzahl bereits empfangenen Datenbytes  */
-  uint8_t   *arrPtrObj[NUMBDATAOBJMAX];		**< Zeiger auf Datenobjekt */
-  uint8_t 	arrStatus[NUMBDATAOBJMAX];		**< Kommunikationszustand des Empfangsobjekts #CP_StatusTypeDef*/
+  uint16_t  arrID[NUMBDATAOBJMAX];			/**< Initialisierte ID */
+  uint32_t  arrLength[NUMBDATAOBJMAX];	/**< Groesse des Datenobjekts in Byte */
+  uint32_t  arrOffset[NUMBDATAOBJMAX];		/**< Anzahl bereits empfangenen Datenbytes  */
+  uint8_t   *arrPtrObj[NUMBDATAOBJMAX];	/**< Zeiger auf Datenobjekt */
+  uint8_t 	arrStatus[NUMBDATAOBJMAX];		/**< Kommunikationszustand des Empfangsobjekts #CP_StatusTypeDef*/
 }CPcontrolFieldsRX;
 /** @} */
 
@@ -120,19 +120,19 @@ extern 	uint8_t CP_LastErrorCodes[3];
 
 
 
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 /* FUNCTION DECLARATIONS */
-/*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*/
+/****************************************************************************/
 
 /** Interrupt Callback Functions */
 extern void HAL_CAN_TxCpltCallback(CAN_HandleTypeDef *CanHandle);
 
 /** Other Functions */
-extern void 		CP_CAN_Init();
-extern void 		CP_InitControlFieldsTx();
-extern void 		CP_InitControlFieldsRx();
-extern int16_t 		CP_searchIDRx(uint16_t ID);
-extern void 		CP_SaveErrorCode(uint32_t ErrorCode);
+extern CP_StatusTypeDef 	CP_CAN_Init();
+extern void 				CP_InitControlFieldsTx();
+extern void 				CP_InitControlFieldsRx();
+extern int16_t 				CP_searchIDRx(uint16_t ID);
+extern void 				CP_SaveErrorCode(uint32_t ErrorCode);
 
  
 
