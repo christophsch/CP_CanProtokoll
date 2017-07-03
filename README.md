@@ -120,7 +120,7 @@ Fuer genanntes Problem gibt es unterschiedliche Loesungsszenarien: Eine waere ei
 Da die Wahrscheinlichkeit extrem gering ist, waehrend des kurzen Sendeprozesses die Werte des Datenobjekts zu aendern oder waehrend des Empfangs das Datenobjekt auszulesen wird auf die Implementierung der oben genannten Moeglichkeiten verzichtet und dem Anwender eine einfache Moeglichkeit zur Ueberpruefung  des aktuellen Sende- und Empfangs-Status geliefert. Somit kann sichergestellt werden, das Datenobjekt erst nach erfolgreichem Versand/Empfang zu schreiben/lesen.
 
 
-###Aufbau und Dateistruktur
+### Aufbau und Dateistruktur
 Das entwickelte Protokoll besteht aus 2 Ebenen und 4 Dateien. Wobei unterschieden wird zwischen dem Anwender-Interface und der Steuerungs-Ebene. Dabei ist der Name „Anwender-Interface“ nicht gleichzusetzen mit der Anwendungsschicht des oben beschriebenen OSI-Modells. Der Name wurde gewaehlt, da das „Anwender-Interface“ dem Anwender des entwickelten CAN-Protokolls Funktionen zur Verfuegung stellt, die fuer den regulaeren Betrieb der CAN-Protokoll-Kommunikation benoetigt werden. Diese Funktionen werden durch das Einbinden der Datei **cp_user.h** zur Verfuegung gestellt. Nachfolgende Abbildung veranschaulicht die Zusammenhaenge. Die Richtung der Pfeile zeigt die Richtung des Funktionsaufrufs und spiegelt nicht die Richtung des Datenflusses wieder.
 
 In der Source-Datei **cp_user.c** sind die Anwender-Jede Anwenderfunktion erhaelt den Rueckgabetyp #CP_StatusTypeDef. Dieser beschreibt, ob die Funktion erfolgreich ausgefuehrt wurde. Die gleichen Werte werden, wie oben gezeigt, auch fuer den Kommunikations-Zustand (Status) der Datenobjekte verwendet.
