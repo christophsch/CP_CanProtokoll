@@ -1,9 +1,0 @@
-<map id="CP_searchIDRx" name="CP_searchIDRx">
-<area shape="rect" id="node2" href="$group___c_p___control___layer.html#ga68d94b22db3d280c9915d5f49db08558" title="CAN&#45;EMPFANGS&#45;PROZESS. " alt="" coords="168,5,345,32"/>
-<area shape="rect" id="node3" href="$group___c_p___user___interface.html#gab825e378caf00b46ed3dcf4b9cb251ae" title="Intitialisierung der Empfangs&#45;Routine fuer einen bestimmten Identifier. " alt="" coords="217,56,297,83"/>
-<area shape="rect" id="node6" href="$group___c_p___user___interface.html#ga7c85b1fcb0480c78d88f1417f30a2a4b" title="Einmaliges Starten der Empfangs&#45;Routine von einem initialisierten Datenobjekt. " alt="" coords="211,107,302,133"/>
-<area shape="rect" id="node7" href="$group___c_p___user___interface.html#ga464899a6f4692441bf2990df962e71cc" title="Abfrage des aktuellen Empfangs&#45;Status von einem Datenobjekt. " alt="" coords="206,157,307,184"/>
-<area shape="rect" id="node8" href="$group___c_p___user___interface.html#ga2e9ac36e741deeb45e538e922d68432b" title="Zuruecksetzen der ID und Loeschen der Elemente im Steuerungselement. " alt="" coords="207,208,307,235"/>
-<area shape="rect" id="node4" href="$group___c_p___example.html#gae907f73b0ed0c7eb71962eebfdd4c31a" title="Beispielprogamm zur Nutzung des CP&#45;Protokolls. " alt="" coords="393,132,489,159"/>
-<area shape="rect" id="node5" href="$main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="main" alt="" coords="537,132,588,159"/>
-</map>
